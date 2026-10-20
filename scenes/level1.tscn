@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://biykxvh1kdwff"]
+
+[ext_resource type="Script" uid="uid://dw8ldmoh0rvgs" path="res://scripts/level.gd" id="1_ejswk"]
+[ext_resource type="PackedScene" uid="uid://csciadekywrpe" path="res://entitites/storm_clouds.tscn" id="1_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://4kf0h0tjcngx" path="res://entitites/ending.tscn" id="2_6sh32"]
+[ext_resource type="Texture2D" uid="uid://dr81jpj5bjko4" path="res://sprites/fonts/blank.png" id="2_ejswk"]
+[ext_resource type="PackedScene" uid="uid://qntjxuq4pp53" path="res://entitites/player.tscn" id="3_ejswk"]
+[ext_resource type="Shader" uid="uid://cdpwefd221b6t" path="res://shaders/blue_bg.gdshader" id="5_conm7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3jkd"]
+shader = ExtResource("5_conm7")
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_ejswk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_d3jkd")
+offset_left = -4038.0
+offset_top = -1255.0
+offset_right = 3690.0
+offset_bottom = 3229.0
+texture = ExtResource("2_ejswk")
+
+[node name="StormClouds" parent="." instance=ExtResource("1_ru4tf")]
+position = Vector2(-2, -165)
+
+[node name="Ending" parent="." instance=ExtResource("2_6sh32")]
+position = Vector2(-301, 1831.0001)
+scale = Vector2(10, 10)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_ejswk")]
+position = Vector2(2, 1)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.8, 0.8)

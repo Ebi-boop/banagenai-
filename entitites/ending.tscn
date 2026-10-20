@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://4kf0h0tjcngx"]
+
+[ext_resource type="Texture2D" uid="uid://daa4bf4ydlxrr" path="res://sprites/fonts/ending.png" id="1_4r6b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sn8b"]
+size = Vector2(60, 4)
+
+[node name="Ending" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 60.0
+offset_bottom = 6.0
+texture = ExtResource("1_4r6b1")
+stretch_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(30, 4)
+shape = SubResource("RectangleShape2D_6sn8b")
+debug_color = Color(0.78431374, 0.19607843, 0.9019608, 0.41960785)
