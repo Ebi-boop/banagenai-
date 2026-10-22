@@ -51,7 +51,8 @@ sources/0 = SubResource("TileSetAtlasSource_q08ds")
 
 [node name="Osbstacle2" type="TileMapLayer" unique_id=1640981083]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD///7/AAACAAAAAAD/////AAACAAEAAAD//wAAAAAFAAAAAAAAAAAAAAABAAAAAAD+/wEAAAAAAAIAAAABAAEAAAACAAIAAAABAAAAAAACAAAAAAAAAAEAAAABAAIAAAD//wEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_5i73s")
 script = ExtResource("2_wf8rw")
-limit_x_offset = 600
+limit_x_offset = 1200

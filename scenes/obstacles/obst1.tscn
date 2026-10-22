@@ -51,7 +51,8 @@ sources/0 = SubResource("TileSetAtlasSource_q08ds")
 
 [node name="Obstacle1" type="TileMapLayer" unique_id=1640981083]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD///7/AAABAAAAAAD/////AAABAAEAAAD//wAAAAABAAEAAAAAAP7/AAABAAAAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAD+/wEAAAAAAAIAAAABAAEAAAACAAIAAAABAP7/AAACAAAAAAABAAAAAAACAAEAAAABAP//AAACAAEAAAAAAAEAAAABAAIAAAD//wEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_5i73s")
 script = ExtResource("2_q08ds")
-limit_x_offset = 600
+limit_x_offset = 1200
