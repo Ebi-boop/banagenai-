@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://csciadekywrpe"]
+[gd_scene format=3 uid="uid://csciadekywrpe"]
 
 [ext_resource type="Texture2D" uid="uid://ddfx0eupo1boq" path="res://sprites/icon.svg" id="1_1bbbv"]
+[ext_resource type="Script" uid="uid://dnj1c3eu8jish" path="res://scripts/storm_clouds.gd" id="1_y7j63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7j63"]
 
-[node name="StormClouds" type="Node2D"]
+[node name="StormClouds" type="Node2D" unique_id=284230203]
+script = ExtResource("1_y7j63")
+final_speed = 1600.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1713122647]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=859698059]
 shape = SubResource("RectangleShape2D_y7j63")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=527700066]
 texture_filter = 1
 scale = Vector2(4, 1)
 texture = ExtResource("1_1bbbv")

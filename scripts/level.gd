@@ -1,12 +1,16 @@
 extends Node
 @onready var player = $Player
+@onready var StormClouds = $StormClouds
 @onready var camera = $Player/Camera2D
 @onready var ending = $Ending
 @onready var PartsContainer = $PartsContainer
+@onready var BlueBG = $BlueBG
+@onready var GreenBG = $GreenBG
 
 #Setting the level parts
 @export var parts : Array[PackedScene]
 @export var ending_y : float
+@export var odd_offset : float
 
 
 var playing = GameState.playing
@@ -30,7 +34,11 @@ func spawn_parts():
 			part_x += 400
 		
 		#Setting the values for next spawn
-		part_x = -1000
+		if odd_offset > 0 and j % 2 == 0:
+			part_x = -1000 + odd_offset
+		else:
+			part_x = -1000
+			
 		part_y += 600
 		
 		#Changing order 
@@ -72,3 +80,8 @@ func _process(_delta: float) -> void:
 		if camera.offset.x == 800:
 			var scene = ending_screen.instantiate()
 			add_child(scene)
+	
+	#Manage entities positions
+	BlueBG.position.x = player.position.x - BlueBG.size.x / 2
+	GreenBG.position.x = player.position.x - GreenBG.size.x / 2
+	ending.position.x = player.position.x

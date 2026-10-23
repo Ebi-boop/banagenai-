@@ -4,7 +4,7 @@ extends TileMapLayer
 @export var limit_x_offset : int
 
 func _ready() -> void:
-	print(player)
+	pass
 
 
 func _process(_delta: float) -> void:
