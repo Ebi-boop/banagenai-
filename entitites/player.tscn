@@ -10,6 +10,10 @@ height = 164.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljlx0"]
 size = Vector2(90, 138)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nh6x"]
+atlas = ExtResource("2_ljlx0")
+region = Rect2(32, 64, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljlx0"]
 atlas = ExtResource("2_ljlx0")
 region = Rect2(32, 32, 16, 16)
@@ -44,6 +48,14 @@ region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8iw7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nh6x")
+}],
+"loop": 1,
+"name": &"Cooked",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ljlx0")
@@ -108,8 +120,7 @@ shape = SubResource("RectangleShape2D_ljlx0")
 texture_filter = 1
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_j8iw7")
-animation = &"Jump"
+animation = &"Cooked"
 autoplay = "Idle"
-frame_progress = 0.95919394
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_2d_area_entered"]

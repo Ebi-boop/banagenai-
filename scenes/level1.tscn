@@ -22,27 +22,35 @@ parts = Array[PackedScene]([ExtResource("2_bbk5w"), ExtResource("3_bbk5w"), ExtR
 ending_y = 10000.0
 odd_offset = 200.0
 
-[node name="BlueBG" type="TextureRect" parent="." unique_id=1035718481]
+[node name="BG" type="Control" parent="." unique_id=326899122]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BlueBG" type="TextureRect" parent="BG" unique_id=1035718481]
 material = SubResource("ShaderMaterial_d3jkd")
-offset_left = -1279.0
-offset_top = -939.0
-offset_right = 1293.0
-offset_bottom = 6895.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3000.0
+offset_right = 3000.0
+offset_bottom = 6894.0
+grow_horizontal = 2
 texture = ExtResource("2_ejswk")
 
-[node name="GreenBG" type="TextureRect" parent="." unique_id=1837116243]
+[node name="GreenBG" type="TextureRect" parent="BG" unique_id=1837116243]
 material = SubResource("ShaderMaterial_bfdcr")
-offset_left = -1279.0
+layout_mode = 0
+offset_left = -3000.0
 offset_top = 6894.0
-offset_right = 1293.0
-offset_bottom = 10649.0
+offset_right = 3000.0
+offset_bottom = 13394.0
 texture = ExtResource("2_ejswk")
 
 [node name="StormClouds" parent="." unique_id=972491460 instance=ExtResource("1_ru4tf")]
 position = Vector2(-2, -165)
 
 [node name="Ending" parent="." unique_id=350802875 instance=ExtResource("2_6sh32")]
-position = Vector2(7, 9500)
+position = Vector2(4.7683716e-07, 10000)
 scale = Vector2(43, 43)
 
 [node name="Player" parent="." unique_id=1146180729 instance=ExtResource("3_ejswk")]

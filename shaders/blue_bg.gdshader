@@ -6,7 +6,7 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	vec4 top_color = vec4(0.02, 0.27, 0.72, 0.97);
+	vec4 top_color = vec4(0.02, 0.29, 0.70, 0.97);
 	vec4 bottom_color = vec4(0.10, 0.65, 1.0, 0.97);
 	
 	COLOR = mix(top_color, bottom_color, UV.y);

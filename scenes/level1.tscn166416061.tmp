@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://biykxvh1kdwff"]
+
+[ext_resource type="Script" uid="uid://dw8ldmoh0rvgs" path="res://scripts/level.gd" id="1_ejswk"]
+[ext_resource type="PackedScene" uid="uid://csciadekywrpe" path="res://entitites/storm_clouds.tscn" id="1_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://4kf0h0tjcngx" path="res://entitites/ending.tscn" id="2_6sh32"]
+[ext_resource type="PackedScene" uid="uid://cjxuvsy7ox3il" path="res://scenes/obstacles/obst1.tscn" id="2_bbk5w"]
+[ext_resource type="Texture2D" uid="uid://dr81jpj5bjko4" path="res://sprites/fonts/blank.png" id="2_ejswk"]
+[ext_resource type="PackedScene" uid="uid://cn3qwkktu6mx0" path="res://scenes/obstacles/obst2.tscn" id="3_bbk5w"]
+[ext_resource type="PackedScene" uid="uid://qntjxuq4pp53" path="res://entitites/player.tscn" id="3_ejswk"]
+[ext_resource type="Shader" uid="uid://cdpwefd221b6t" path="res://shaders/blue_bg.gdshader" id="5_conm7"]
+[ext_resource type="Shader" uid="uid://dkgbkjmyelxye" path="res://shaders/green_bg.gdshader" id="6_conm7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3jkd"]
+shader = ExtResource("5_conm7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfdcr"]
+shader = ExtResource("6_conm7")
+
+[node name="level1" type="Node2D" unique_id=1616459041 groups=["level"]]
+script = ExtResource("1_ejswk")
+parts = Array[PackedScene]([ExtResource("2_bbk5w"), ExtResource("3_bbk5w"), ExtResource("2_bbk5w"), ExtResource("3_bbk5w"), ExtResource("2_bbk5w"), ExtResource("3_bbk5w")])
+ending_y = 10000.0
+odd_offset = 200.0
+
+[node name="BlueBG" type="TextureRect" parent="." unique_id=1035718481]
+material = SubResource("ShaderMaterial_d3jkd")
+offset_left = -1279.0
+offset_top = -939.0
+offset_right = 1293.0
+offset_bottom = 6895.0
+texture = ExtResource("2_ejswk")
+
+[node name="GreenBG" type="TextureRect" parent="." unique_id=1837116243]
+material = SubResource("ShaderMaterial_bfdcr")
+offset_left = -1279.0
+offset_top = 6894.0
+offset_right = 1293.0
+offset_bottom = 10649.0
+texture = ExtResource("2_ejswk")
+
+[node name="StormClouds" parent="." unique_id=972491460 instance=ExtResource("1_ru4tf")]
+position = Vector2(-2, -165)
+
+[node name="Ending" parent="." unique_id=350802875 instance=ExtResource("2_6sh32")]
+position = Vector2(7, 9500)
+scale = Vector2(43, 43)
+
+[node name="Player" parent="." unique_id=1146180729 instance=ExtResource("3_ejswk")]
+scale = Vector2(0.8, 0.8)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=898602953]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Starting" type="Label" parent="." unique_id=1372981818]
+texture_filter = 1
+offset_left = 99.0
+offset_top = -53.0
+offset_right = 290.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 32
+text = "Press Space!"
+
+[node name="PartsContainer" type="Node2D" parent="." unique_id=1057502606]
