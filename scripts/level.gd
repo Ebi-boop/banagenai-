@@ -6,6 +6,7 @@ extends Node
 @onready var PartsContainer = $PartsContainer
 @onready var background = $BG
 @onready var blueBG = $BG/BlueBG
+@onready var end_screen = $EndScreen
 
 #Setting the level parts
 @export var parts : Array[PackedScene]
@@ -20,13 +21,16 @@ const bg_size_y = 13394 #I calculated it by additioning both backgrounds' size.y
 var playing = GameState.playing
 
 #Initial part position
+var part
 var part_y = 300
-var part_x = -1000
+var part_y_jump = 500
+var part_x = -1300
+var part_x_jump = 600
+var x_offset_randomizer : float 
 
 #Ending
 var losing_animation : bool = false
 var now_ending : bool = false
-var ending_screen = preload("res://scenes/end_screen.tscn")
 var ending_camera_x = 850
 
 
@@ -40,22 +44,24 @@ var initial_player_y : float
 #Manage the generation of the parts, called in "func _ready()"
 func spawn_parts():
 	#Generating the rows of part
-	var rows = ending_y / part_y / 2
+	var rows = (ending_y - 600.0) / part_y_jump
 	for j in range(rows):
 		for i in parts:
-			var part = i.instantiate()
+			part = i.instantiate()
 			PartsContainer.add_child(part)
 			
 			part.position = Vector2(part_x, part_y)
-			part_x += 400
+			part_x += part_x_jump
 		
 		#Setting the values for next spawn
-		if odd_offset > 0 and j % 2 == 0:
-			part_x = -1000 + odd_offset
+		if odd_offset > 0 and j % 2 != 0:
+			x_offset_randomizer = randf_range(-250, 250)
+			part_x = -1000 + odd_offset + x_offset_randomizer
 		else:
 			part_x = -1000
-			
-		part_y += 600
+		
+		part_y += part_y_jump
+		
 		
 		#Changing order 
 		var shuffled_part = parts[0]
@@ -67,6 +73,7 @@ func spawn_parts():
 func _ready() -> void:
 	GameState.playing = false
 	GameState.lost = false
+	GameState.finished = false
 	
 	player.position = Vector2(0, 0)
 	ending.position = Vector2(0, ending_y)
@@ -92,7 +99,9 @@ func _process(_delta: float) -> void:
 	
 	#Manage entities positions
 	background.position.x = player.position.x - background.size.x / 2
-	ending.position.x = player.position.x
+	
+	if ending.position.y - player.position.y >= 500:
+		ending.position.x = player.position.x
 	
 	
 	#To start the run
@@ -108,6 +117,7 @@ func _process(_delta: float) -> void:
 		background_follows_player()
 		ending_camera_offset()
 		manage_ending_screen()
+		GameState.finished = true
 
 
 #The camera does a transition at the end
@@ -121,8 +131,7 @@ func ending_camera_offset():
 #Manages the apparition of the ending screen
 func manage_ending_screen():
 	if camera.offset.x == ending_camera_x:
-		var scene = ending_screen.instantiate()
-		add_child(scene)
+		end_screen.visible = true
 
 
 

@@ -1,0 +1,37 @@
+[gd_scene format=4 uid="uid://ifbv0h3k6o5q"]
+
+[ext_resource type="Texture2D" uid="uid://dd24qg7m2eeby" path="res://sprites/tile_maps/grass.png" id="1_7al8j"]
+[ext_resource type="Script" uid="uid://b21ja76hiuiv" path="res://scripts/obst_1.gd" id="2_xni73"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wf8rw"]
+texture = ExtResource("1_7al8j")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.963829, 8, -3.7656364, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.963829, 8, -3.7656364, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.963829, 8, -3.7656364, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_5i73s"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_wf8rw")
+
+[node name="Osbstacle3" type="TileMapLayer" unique_id=1640981083]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADAP7/AQACAAAAAAADAP//AQACAAIAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAIAAAACAP7/AQABAAAAAAABAP7/AQABAAAAAAAAAP7/AQABAAAAAAD9/wAAAQABAAAAAAD+/wAAAQAAAAEAAAD//wAAAQABAAEAAAD9/wEAAQABAAIAAAD+/wEAAQABAAIAAAD//wEAAQABAAIAAAACAP//AQABAAIAAAABAP//AQABAAEAAAAAAP//AQABAAEAAAABAAEAAQACAAIAAAD+//7/AQAAAAAAAAABAAAAAQACAAEAAAD+////AQAAAAEAAAD///7/AQABAAAAAAAAAAEAAQABAAIAAAAAAAAAAQABAAEAAAD/////AQABAAEAAAA=")
+tile_set = SubResource("TileSet_5i73s")
+script = ExtResource("2_xni73")
+limit_x_offset = 1800

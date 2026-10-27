@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://gied3siiv7hl"]
+
+[ext_resource type="Script" uid="uid://blukk3mq161yt" path="res://scripts/timer.gd" id="1_srplv"]
+
+[node name="Timer" type="CanvasLayer" unique_id=1428957181]
+visible = false
+script = ExtResource("1_srplv")
+
+[node name="Control" type="Control" parent="." unique_id=1390597013]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="MarginContainer" parent="Control" unique_id=1223474891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 2900
+theme_override_constants/margin_bottom = 1700
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=386919807]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Time: "
+
+[node name="Timer" type="Timer" parent="." unique_id=1365717421]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

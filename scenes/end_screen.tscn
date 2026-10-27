@@ -2,13 +2,20 @@
 
 [ext_resource type="Shader" uid="uid://d2o85b8d4cn23" path="res://shaders/grey_bg.gdshader" id="1_6e1uj"]
 [ext_resource type="Script" uid="uid://gcqmo3aavvh0" path="res://scripts/end_screen.gd" id="1_jc7ji"]
-[ext_resource type="Texture2D" uid="uid://dr81jpj5bjko4" path="res://sprites/fonts/blank.png" id="2_jc7ji"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8iw7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e1uj"]
 shader = ExtResource("1_6e1uj")
+shader_parameter/alpha = 0.1
 
 [node name="EndScreen" type="CanvasLayer" unique_id=535015204]
 script = ExtResource("1_jc7ji")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1606484417]
+material = SubResource("ShaderMaterial_6e1uj")
+offset_left = 1250.0
+offset_top = 19.5
+offset_right = 3590.0
+offset_bottom = 1900.5
 
 [node name="Control" type="Control" parent="." unique_id=592948868]
 layout_mode = 3
@@ -29,11 +36,6 @@ theme_override_constants/margin_left = 1250
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 250
 theme_override_constants/margin_bottom = 100
-
-[node name="Background" type="TextureRect" parent="Control/VBoxContainer" unique_id=186306893]
-material = SubResource("ShaderMaterial_j8iw7")
-layout_mode = 2
-texture = ExtResource("2_jc7ji")
 
 [node name="LabelMargin" type="MarginContainer" parent="Control/VBoxContainer" unique_id=1043703259]
 layout_mode = 2

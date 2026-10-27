@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b3owb8s0d7yxi" path="res://scripts/ending.gd" id="1_6sn8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sn8b"]
-size = Vector2(60, 4)
+size = Vector2(120, 4)
 
 [node name="Ending" type="Node2D" unique_id=493568916]
 scale = Vector2(8, 8)
@@ -12,8 +12,8 @@ script = ExtResource("1_6sn8b")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1830743792]
 texture_filter = 1
-offset_left = -30.0
-offset_right = 30.0
+offset_left = -60.0
+offset_right = 60.0
 offset_bottom = 6.0
 texture = ExtResource("1_4r6b1")
 stretch_mode = 1

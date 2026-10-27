@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://biykxvh1kdwff"]
+
+[ext_resource type="Script" uid="uid://dw8ldmoh0rvgs" path="res://scripts/level.gd" id="1_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://cjxuvsy7ox3il" path="res://scenes/obstacles/obst1.tscn" id="2_8iemx"]
+[ext_resource type="PackedScene" uid="uid://cn3qwkktu6mx0" path="res://scenes/obstacles/obst2.tscn" id="3_64w2a"]
+[ext_resource type="PackedScene" uid="uid://ifbv0h3k6o5q" path="res://scenes/obstacles/obst3.tscn" id="4_fpun6"]
+[ext_resource type="Shader" uid="uid://cdpwefd221b6t" path="res://shaders/blue_bg.gdshader" id="5_wc255"]
+[ext_resource type="Texture2D" uid="uid://dr81jpj5bjko4" path="res://sprites/fonts/blank.png" id="6_arp2o"]
+[ext_resource type="Shader" uid="uid://dkgbkjmyelxye" path="res://shaders/green_bg.gdshader" id="7_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://csciadekywrpe" path="res://entitites/storm_clouds.tscn" id="8_82cfe"]
+[ext_resource type="PackedScene" uid="uid://4kf0h0tjcngx" path="res://entitites/ending.tscn" id="9_gunhw"]
+[ext_resource type="PackedScene" uid="uid://qntjxuq4pp53" path="res://entitites/player.tscn" id="10_8gofh"]
+[ext_resource type="PackedScene" uid="uid://wcsyh5px4y6a" path="res://scenes/end_screen.tscn" id="11_h6wmr"]
+[ext_resource type="PackedScene" uid="uid://gied3siiv7hl" path="res://scenes/timer.tscn" id="12_8iemx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3jkd"]
+shader = ExtResource("5_wc255")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfdcr"]
+shader = ExtResource("7_ux5qa")
+
+[node name="level" type="Node2D" unique_id=1616459041 groups=["level"]]
+script = ExtResource("1_t1rx8")
+parts = Array[PackedScene]([ExtResource("2_8iemx"), ExtResource("3_64w2a"), ExtResource("4_fpun6"), ExtResource("2_8iemx"), ExtResource("3_64w2a"), ExtResource("4_fpun6")])
+ending_y = 15000.0
+odd_offset = 250.0
+
+[node name="BG" type="Control" parent="." unique_id=326899122]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BlueBG" type="TextureRect" parent="BG" unique_id=1035718481]
+material = SubResource("ShaderMaterial_d3jkd")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3000.0
+offset_right = 3000.0
+offset_bottom = 6894.0
+grow_horizontal = 2
+texture = ExtResource("6_arp2o")
+
+[node name="GreenBG" type="TextureRect" parent="BG" unique_id=1837116243]
+material = SubResource("ShaderMaterial_bfdcr")
+layout_mode = 0
+offset_left = -3000.0
+offset_top = 6894.0
+offset_right = 3000.0
+offset_bottom = 13394.0
+texture = ExtResource("6_arp2o")
+
+[node name="StormClouds" parent="." unique_id=972491460 instance=ExtResource("8_82cfe")]
+position = Vector2(-2, -165)
+
+[node name="Ending" parent="." unique_id=350802875 instance=ExtResource("9_gunhw")]
+position = Vector2(4.7683716e-07, 10000)
+scale = Vector2(43, 43)
+
+[node name="PartsContainer" type="Node2D" parent="." unique_id=1057502606]
+
+[node name="Player" parent="." unique_id=1146180729 instance=ExtResource("10_8gofh")]
+scale = Vector2(0.8, 0.8)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=898602953]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Starting" type="Label" parent="." unique_id=1372981818]
+texture_filter = 1
+offset_left = 99.0
+offset_top = -53.0
+offset_right = 290.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 32
+text = "Press Space!"
+
+[node name="EndScreen" parent="." unique_id=535015204 instance=ExtResource("11_h6wmr")]
+visible = false
+
+[node name="Timer" parent="." unique_id=1428957181 instance=ExtResource("12_8iemx")]

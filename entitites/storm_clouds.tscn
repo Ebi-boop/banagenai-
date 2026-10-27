@@ -7,7 +7,7 @@
 
 [node name="StormClouds" type="Node2D" unique_id=284230203]
 script = ExtResource("1_y7j63")
-final_speed = 2400.0
+final_speed = 1900.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1713122647]
 

@@ -9,7 +9,7 @@ var acceleration : bool = false
 @export var final_speed : float
 
 const INITIAL_SPEED : int = 2
-const ACCELERATION_STEP : float = 4
+const ACCELERATION_STEP : float = 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,3 +62,4 @@ func moving(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
 		GameState.lost = true
+		GameState.finished = true

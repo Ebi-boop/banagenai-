@@ -2,16 +2,16 @@
 
 [ext_resource type="Shader" uid="uid://d2o85b8d4cn23" path="res://shaders/grey_bg.gdshader" id="1_gswpo"]
 [ext_resource type="Script" uid="uid://bcq8sslcv2m47" path="res://scripts/level_selection.gd" id="1_tuscg"]
-[ext_resource type="Texture2D" uid="uid://dr81jpj5bjko4" path="res://sprites/fonts/blank.png" id="2_3rh63"]
 [ext_resource type="Texture2D" uid="uid://ddfx0eupo1boq" path="res://sprites/icon.svg" id="3_3rh63"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tuscg"]
 shader = ExtResource("1_gswpo")
+shader_parameter/alpha = 0.1
 
 [node name="LevelSelection" type="CanvasLayer" unique_id=1296303128]
 script = ExtResource("1_tuscg")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1584155566]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1370140666]
 material = SubResource("ShaderMaterial_tuscg")
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,28 +19,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-texture = ExtResource("2_3rh63")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=401940846]
+[node name="Control" type="Control" parent="." unique_id=340723580]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = -50.0
-offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=985558096]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=401940846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1Container" type="MarginContainer" parent="Control/VBoxContainer" unique_id=985558096]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer" unique_id=2072534237]
+[node name="Level1" type="Button" parent="Control/VBoxContainer/Level1Container" unique_id=2072534237]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 130
+theme_override_font_sizes/font_size = 150
 text = "Level 1"
 icon = ExtResource("3_3rh63")
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="Level2Container" type="MarginContainer" parent="Control/VBoxContainer" unique_id=227782844]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Level2" type="Button" parent="Control/VBoxContainer/Level2Container" unique_id=2040092967]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "Level 2"
+icon = ExtResource("3_3rh63")
+
+[connection signal="pressed" from="Control/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Level2Container/Level2" to="." method="_on_level_2_pressed"]

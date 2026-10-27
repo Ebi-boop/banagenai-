@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 const MAX_VELOCITY_Y = 2000
 
 var playing = GameState.lost
-var lost = GameState.lost
+var finished = GameState.lost
 var flipped : bool = false
 
 
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = MAX_VELOCITY_Y
 
 		#Can't do stuff if lost
-		if lost != true:
+		if finished != true:
 			anim()
 			action_managing()
 		
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 	playing = GameState.playing
-	lost = GameState.lost
+	finished = GameState.finished
 
 
 func action_managing():
